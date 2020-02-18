@@ -38,7 +38,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          install.packages('remotes')
+          install.packages(c('remotes','xml2'))
           remotes::install_github('hadley/emo')
           remotes::install_deps(dependencies = TRUE)
           remotes::install_cran('rcmdcheck')
