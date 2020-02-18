@@ -1,6 +1,6 @@
 Tests and Coverage
 ================
-06 February, 2020 23:44:59
+18 February, 2020 04:26:18
 
   - [Coverage](#coverage)
   - [Unit Tests](#unit-tests)
@@ -13,15 +13,11 @@ This output is created by
 Coverage summary is created using the
 [covr](https://github.com/r-lib/covr) package.
 
-| Object                                  | Coverage (%) |
-| :-------------------------------------- | :----------: |
-| slackblocks                             |      0       |
-| [R/compositions.R](../R/compositions.R) |      0       |
-| [R/elements.R](../R/elements.R)         |      0       |
-| [R/layout.R](../R/layout.R)             |      0       |
-| [R/post.R](../R/post.R)                 |      0       |
-| [R/reprex.R](../R/reprex.R)             |      0       |
-| [R/utils.R](../R/utils.R)               |      0       |
+| Object                                            | Coverage (%) |
+| :------------------------------------------------ | :----------: |
+| slackreprex                                       |      0       |
+| [R/reprex\_to\_blocks.R](../R/reprex_to_blocks.R) |      0       |
+| [R/reprex.R](../R/reprex.R)                       |      0       |
 
 <br>
 
@@ -51,7 +47,7 @@ Unit Test summary is created using the
 | Field    | Value                               |                                                                                                                                                                                                                                                                     |
 | :------- | :---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Version  | R version 3.6.2 (2019-12-12)        |                                                                                                                                                                                                                                                                     |
-| Platform | x86\_64-apple-darwin15.6.0 (64-bit) | <a href="https://github.com/yonicd/slackblocks/commit/d4562b940f1413bd4b43d506d30c960b1d192a6b/checks" target="_blank"><span title="Built on Github Actions">![](https://github.com/metrumresearchgroup/covrpage/blob/actions/inst/logo/gh.png?raw=true)</span></a> |
+| Platform | x86\_64-apple-darwin15.6.0 (64-bit) | <a href="https://github.com/yonicd/slackreprex/commit/64271b125b863f213828d5883a16f76e97690b31/checks" target="_blank"><span title="Built on Github Actions">![](https://github.com/metrumresearchgroup/covrpage/blob/actions/inst/logo/gh.png?raw=true)</span></a> |
 | Running  | macOS Catalina 10.15.3              |                                                                                                                                                                                                                                                                     |
 | Language | en\_US                              |                                                                                                                                                                                                                                                                     |
 | Timezone | UTC                                 |                                                                                                                                                                                                                                                                     |
