@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# slackblocks
+# slackreprex
 
 <!-- badges: start -->
 
@@ -16,6 +16,14 @@ status](https://github.com/yonicd/slackreprex/workflows/R-linux/badge.svg)](http
 [![Covrpage
 Summary](https://img.shields.io/badge/covrpage-Last_Build_2020_02_06-brightgreen.svg)](http://tinyurl.com/tf2xf4d)
 <!-- badges: end -->
+
+`slackreprex` is a part of `slackverse`
+
+|                                                                                                                                 |                                                                                                                                     |                                                                                                                                    |
+| :-----------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------: |
+|                                                                                                                                 | slackcalls<br>[![](https://github.com/yonicd/slackcalls/workflows/R-mac/badge.svg)](https://github.com/yonicd/slackcalls)<br>↙️⬇️↘️ |                                                                                                                                    |
+| slackthreads<br>[![](https://github.com/yonicd/slackthreads/workflows/R-mac/badge.svg)](https://github.com/yonicd/slackthreads) |  slackteams<br>[![](https://github.com/yonicd/slackteams/workflows/R-mac/badge.svg)](https://github.com/yonicd/slackteams)<br>⬅️➡️  | slackblocks<br>[![](https://github.com/yonicd/slackblocks/workflows/R-mac/badge.svg)](https://github.com/yonicd/slackblocks)<br>⬇️ |
+|                                                                                                                                 |                                                                                                                                     |    slackreprex<br>[![](https://github.com/yonicd/slackreprex/workflows/R-mac/badge.svg)](https://github.com/yonicd/slackreprex)    |
 
 The goal of `slackreprex` is to post reprex outputs to Slack using
 `slackblocks`.
@@ -78,7 +86,7 @@ reprex_to_blocks()
     #>   },
     #>   {
     #>     "type": "image",
-    #>     "image_url": "https://i.imgur.com/X0iXkmp.png",
+    #>     "image_url": "https://i.imgur.com/sVHQqTV.png",
     #>     "alt_text": "image"
     #>   },
     #>   {
