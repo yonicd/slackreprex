@@ -14,7 +14,7 @@ status](https://github.com/yonicd/slackreprex/workflows/R-mac/badge.svg)](https:
 [![R-linux build
 status](https://github.com/yonicd/slackreprex/workflows/R-linux/badge.svg)](https://github.com/yonicd/slackreprex)
 [![Covrpage
-Summary](https://img.shields.io/badge/covrpage-Last_Build_2020_02_06-brightgreen.svg)](http://tinyurl.com/tf2xf4d)
+Summary](https://img.shields.io/badge/covrpage-Last_Build_2020_02_18-brightgreen.svg)](http://tinyurl.com/tf2xf4d)
 <!-- badges: end -->
 
 `slackreprex` is a part of `slackverse`
@@ -74,6 +74,8 @@ hist(runif(2*y))
 venue = 'gh', advertise = FALSE, show = FALSE)%>%
 reprex_to_blocks()
 #> Rendering reprex...
+#> -|-|-|-|-| 
+#> Rendered reprex is on the clipboard.
 ```
 
     #> [
@@ -86,7 +88,7 @@ reprex_to_blocks()
     #>   },
     #>   {
     #>     "type": "image",
-    #>     "image_url": "https://i.imgur.com/sVHQqTV.png",
+    #>     "image_url": "https://i.imgur.com/kYxKLea.png",
     #>     "alt_text": "image"
     #>   },
     #>   {

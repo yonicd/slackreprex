@@ -1,14 +1,47 @@
-#' @title FUNCTION_TITLE
-#' @description FUNCTION_DESCRIPTION
-#' @param x PARAM_DESCRIPTION
-#' @return OUTPUT_DESCRIPTION
-#' @details DETAILS
+#' @title Convert reprex output to slack blocks
+#' @description Convert reprex output to slackblocks with text and figure
+#' links if relevant
+#' @param x reprex output
+#' @return slackblocks
+#' @details If a reprex chunk contains an error an rotating_light
+#'  emoji will be attacheted to the textblock.
 #' @examples 
 #' \dontrun{
 #' if(interactive()){
-#'  #EXAMPLE1
-#'  }
-#' }
+#' 
+#' reprex_to_blocks(
+#'    reprex::reprex({
+#'       x <- 10
+#'       x + 2
+#'    },
+#'    venue = 'gh', 
+#'    advertise = FALSE, 
+#'    show = FALSE)
+#'  )
+#' 
+#' # with plot
+#' reprex_to_blocks(
+#'    reprex::reprex({
+#'       x <- 10
+#'       hist(runif(x))
+#'    },
+#'    venue = 'gh', 
+#'    advertise = FALSE, 
+#'    show = FALSE)
+#'  )
+#' 
+#' # with error
+#'  reprex_to_blocks(
+#'    reprex::reprex({
+#'       x <- 10
+#'       hist(runif(2*y))
+#'    },
+#'    venue = 'gh', 
+#'    advertise = FALSE, 
+#'    show = FALSE)
+#'  )
+#'  
+#'  }}
 #' @rdname reprex_to_blocks
 #' @export 
 #' @importFrom slackblocks block_context block_text block_section block_image as.blocks

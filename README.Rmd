@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 [![R-win build status](https://github.com/yonicd/slackreprex/workflows/R-win/badge.svg)](https://github.com/yonicd/slackreprex)
 [![R-mac build status](https://github.com/yonicd/slackreprex/workflows/R-mac/badge.svg)](https://github.com/yonicd/slackreprex)
 [![R-linux build status](https://github.com/yonicd/slackreprex/workflows/R-linux/badge.svg)](https://github.com/yonicd/slackreprex)
-[![Covrpage Summary](https://img.shields.io/badge/covrpage-Last_Build_2020_02_06-brightgreen.svg)](http://tinyurl.com/tf2xf4d)
+[![Covrpage Summary](https://img.shields.io/badge/covrpage-Last_Build_2020_02_18-brightgreen.svg)](http://tinyurl.com/tf2xf4d)
 <!-- badges: end -->
 
 `slackreprex` is a part of `slackverse`

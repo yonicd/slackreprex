@@ -2,26 +2,59 @@
 % Please edit documentation in R/reprex_to_blocks.R
 \name{reprex_to_blocks}
 \alias{reprex_to_blocks}
-\title{FUNCTION_TITLE}
+\title{Convert reprex output to slack blocks}
 \usage{
 reprex_to_blocks(x)
 }
 \arguments{
-\item{x}{PARAM_DESCRIPTION}
+\item{x}{reprex output}
 }
 \value{
-OUTPUT_DESCRIPTION
+slackblocks
 }
 \description{
-FUNCTION_DESCRIPTION
+Convert reprex output to slackblocks with text and figure
+links if relevant
 }
 \details{
-DETAILS
+If a reprex chunk contains an error an rotating_light
+emoji will be attacheted to the textblock.
 }
 \examples{
 \dontrun{
 if(interactive()){
- #EXAMPLE1
- }
-}
+
+reprex_to_blocks(
+   reprex::reprex({
+      x <- 10
+      x + 2
+   },
+   venue = 'gh', 
+   advertise = FALSE, 
+   show = FALSE)
+ )
+
+# with plot
+reprex_to_blocks(
+   reprex::reprex({
+      x <- 10
+      hist(runif(x))
+   },
+   venue = 'gh', 
+   advertise = FALSE, 
+   show = FALSE)
+ )
+
+# with error
+ reprex_to_blocks(
+   reprex::reprex({
+      x <- 10
+      hist(runif(2*y))
+   },
+   venue = 'gh', 
+   advertise = FALSE, 
+   show = FALSE)
+ )
+ 
+ }}
 }

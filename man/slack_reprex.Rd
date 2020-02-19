@@ -2,35 +2,54 @@
 % Please edit documentation in R/reprex.R
 \name{slack_reprex}
 \alias{slack_reprex}
-\title{FUNCTION_TITLE}
+\title{post reprex output to slack}
 \usage{
 slack_reprex(..., text = NULL, channel, token = Sys.getenv("SLACK_API_TOKEN"))
 }
 \arguments{
-\item{...}{PARAM_DESCRIPTION}
+\item{...}{code to evaluate in reprex}
 
-\item{text}{PARAM_DESCRIPTION}
+\item{text}{question text to attach to the reprex blocks}
 
-\item{channel}{PARAM_DESCRIPTION}
+\item{channel}{character, channel to post to}
 
-\item{token}{PARAM_DESCRIPTION, Default: Sys.getenv("SLACK_API_TOKEN")}
+\item{token}{Slack API token, Default: Sys.getenv("SLACK_API_TOKEN")}
 }
 \value{
-OUTPUT_DESCRIPTION
+\link[httr:response]{response} from slack api
 }
 \description{
-FUNCTION_DESCRIPTION
+Converts reprex output to slackblocks and
+posts the blocks to a slack conversation which can be a channel,
+a direct message, a group message or a thread in one of them.
 }
 \details{
-DETAILS
+channel can be on of the following in an activated team
+\itemize{
+\item name of channel
+\item channel id
+\item link to a message in a channel, direct message or a group message
+}
 }
 \examples{
 \dontrun{
 if(interactive()){
- #EXAMPLE1
+
+# assumes '~/.slackteams.json' exists.
+slackteams::load_team()
+team <- slackteams::get_teams()[1]
+slackteams::activate_team(team)
+
+slack_reprex({
+  x <- 10
+  hist(runif(x))
+  hist(runif(2*y))
+},
+text = 'My question is ... ',
+channel = 'slackbot')
  }
 }
 }
 \seealso{
-\code{\link[reprex]{reprex}}
+\link[reprex:reprex]{reprex}
 }
