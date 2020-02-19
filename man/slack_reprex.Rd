@@ -35,7 +35,7 @@ channel can be on of the following in an activated team
 \dontrun{
 if(interactive()){
 
-# assumes '~/.slackteams.json' exists.
+# assumes '~/.slackteams' exists.
 slackteams::load_team()
 team <- slackteams::get_teams()[1]
 slackteams::activate_team(team)
