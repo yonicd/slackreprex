@@ -1,6 +1,6 @@
 Tests and Coverage
 ================
-18 February, 2020 21:03:25
+18 February, 2020 21:06:14
 
   - [Coverage](#coverage)
   - [Unit Tests](#unit-tests)
@@ -37,12 +37,12 @@ Unit Test summary is created using the
 | file                                      | context          | test                  | status | n |  time |
 | :---------------------------------------- | :--------------- | :-------------------- | :----- | -: | ----: |
 | [test-check.R](testthat/test-check.R#L29) | reprex to blocks | class: no\_fig        | PASS   | 1 | 0.001 |
-| [test-check.R](testthat/test-check.R#L33) | reprex to blocks | class: err            | PASS   | 1 | 0.001 |
+| [test-check.R](testthat/test-check.R#L33) | reprex to blocks | class: err            | PASS   | 1 | 0.000 |
 | [test-check.R](testthat/test-check.R#L37) | reprex to blocks | class: fig            | PASS   | 1 | 0.001 |
 | [test-check.R](testthat/test-check.R#L45) | reprex to blocks | element type: no\_fig | PASS   | 1 | 0.001 |
 | [test-check.R](testthat/test-check.R#L49) | reprex to blocks | element type: err     | PASS   | 1 | 0.001 |
 | [test-check.R](testthat/test-check.R#L53) | reprex to blocks | element type: err emo | PASS   | 1 | 0.001 |
-| [test-check.R](testthat/test-check.R#L57) | reprex to blocks | element type: fig     | PASS   | 1 | 0.000 |
+| [test-check.R](testthat/test-check.R#L57) | reprex to blocks | element type: fig     | PASS   | 1 | 0.001 |
 
 </details>
 
