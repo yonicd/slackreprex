@@ -167,7 +167,7 @@ a direct message, a group message or a thread in one of them.</p>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()){
 
-<span class='co'># assumes '~/.slackteams.json' exists.</span>
+<span class='co'># assumes '~/.slackteams' exists.</span>
 <span class='kw pkg'>slackteams</span><span class='kw ns'>::</span><span class='fu'>load_team</span>()
 <span class='no'>team</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>slackteams</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/slackteams/man/get_methods.html'>get_teams</a></span>()[<span class='fl'>1</span>]
 <span class='kw pkg'>slackteams</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/slackteams/man/manage_team.html'>activate_team</a></span>(<span class='no'>team</span>)
