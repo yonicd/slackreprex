@@ -1,6 +1,6 @@
 Tests and Coverage
 ================
-18 February, 2020 21:06:14
+19 February, 2020 02:08:51
 
   - [Coverage](#coverage)
   - [Unit Tests](#unit-tests)
@@ -28,7 +28,7 @@ Unit Test summary is created using the
 
 | file                                  | n |  time | error | failed | skipped | warning |
 | :------------------------------------ | -: | ----: | ----: | -----: | ------: | ------: |
-| [test-check.R](testthat/test-check.R) | 7 | 0.006 |     0 |      0 |       0 |       0 |
+| [test-check.R](testthat/test-check.R) | 7 | 0.043 |     0 |      0 |       0 |       0 |
 
 <details closed>
 
@@ -36,10 +36,10 @@ Unit Test summary is created using the
 
 | file                                      | context          | test                  | status | n |  time |
 | :---------------------------------------- | :--------------- | :-------------------- | :----- | -: | ----: |
-| [test-check.R](testthat/test-check.R#L29) | reprex to blocks | class: no\_fig        | PASS   | 1 | 0.001 |
-| [test-check.R](testthat/test-check.R#L33) | reprex to blocks | class: err            | PASS   | 1 | 0.000 |
+| [test-check.R](testthat/test-check.R#L29) | reprex to blocks | class: no\_fig        | PASS   | 1 | 0.036 |
+| [test-check.R](testthat/test-check.R#L33) | reprex to blocks | class: err            | PASS   | 1 | 0.001 |
 | [test-check.R](testthat/test-check.R#L37) | reprex to blocks | class: fig            | PASS   | 1 | 0.001 |
-| [test-check.R](testthat/test-check.R#L45) | reprex to blocks | element type: no\_fig | PASS   | 1 | 0.001 |
+| [test-check.R](testthat/test-check.R#L45) | reprex to blocks | element type: no\_fig | PASS   | 1 | 0.002 |
 | [test-check.R](testthat/test-check.R#L49) | reprex to blocks | element type: err     | PASS   | 1 | 0.001 |
 | [test-check.R](testthat/test-check.R#L53) | reprex to blocks | element type: err emo | PASS   | 1 | 0.001 |
 | [test-check.R](testthat/test-check.R#L57) | reprex to blocks | element type: fig     | PASS   | 1 | 0.001 |
@@ -50,19 +50,19 @@ Unit Test summary is created using the
 
 <summary> Session Info </summary>
 
-| Field    | Value                               |
-| :------- | :---------------------------------- |
-| Version  | R version 3.6.1 (2019-07-05)        |
-| Platform | x86\_64-apple-darwin15.6.0 (64-bit) |
-| Running  | macOS Mojave 10.14.5                |
-| Language | en\_US                              |
-| Timezone | America/New\_York                   |
+| Field    | Value                               |                                                                                                                                                                                                                                                                     |
+| :------- | :---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Version  | R version 3.6.2 (2019-12-12)        |                                                                                                                                                                                                                                                                     |
+| Platform | x86\_64-apple-darwin15.6.0 (64-bit) | <a href="https://github.com/yonicd/slackreprex/commit/1ba04d3d869f799be34caf3456806ac7bee8df46/checks" target="_blank"><span title="Built on Github Actions">![](https://github.com/metrumresearchgroup/covrpage/blob/actions/inst/logo/gh.png?raw=true)</span></a> |
+| Running  | macOS Catalina 10.15.3              |                                                                                                                                                                                                                                                                     |
+| Language | en\_US                              |                                                                                                                                                                                                                                                                     |
+| Timezone | UTC                                 |                                                                                                                                                                                                                                                                     |
 
 | Package  | Version |
 | :------- | :------ |
-| testthat | 2.2.1   |
-| covr     | 3.3.0   |
-| covrpage | 0.0.70  |
+| testthat | 2.3.1   |
+| covr     | 3.4.0   |
+| covrpage | 0.0.71  |
 
 </details>
 
