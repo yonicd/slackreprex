@@ -34,7 +34,7 @@ names(badges) <- pkgs
 
 ```
 
-||||
+|Get Data from Slack|Manage Slack|Send Data to Slack|
 |:-:|:-:|:-:|
 ||`r badges[pkgs[1]]`<br>`r emo::ji('down_left_arrow')``r emo::ji('down_arrow')``r emo::ji('down_right_arrow')`||
 |`r badges[pkgs[4]]`|`r badges[pkgs[2]]`<br>`r emo::ji('left_arrow')``r emo::ji('right_arrow')`|`r badges[pkgs[3]]`<br>`r emo::ji('down_arrow')`|

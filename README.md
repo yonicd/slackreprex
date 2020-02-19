@@ -19,7 +19,7 @@ Summary](https://img.shields.io/badge/covrpage-Last_Build_2020_02_18-brightgreen
 
 `slackreprex` is a part of `slackverse`
 
-|                                                                                                                                 |                                                                                                                                     |                                                                                                                                    |
+|                                                       Get Data from Slack                                                       |                                                            Manage Slack                                                             |                                                         Send Data to Slack                                                         |
 | :-----------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------: |
 |                                                                                                                                 | slackcalls<br>[![](https://github.com/yonicd/slackcalls/workflows/R-mac/badge.svg)](https://github.com/yonicd/slackcalls)<br>↙️⬇️↘️ |                                                                                                                                    |
 | slackthreads<br>[![](https://github.com/yonicd/slackthreads/workflows/R-mac/badge.svg)](https://github.com/yonicd/slackthreads) |  slackteams<br>[![](https://github.com/yonicd/slackteams/workflows/R-mac/badge.svg)](https://github.com/yonicd/slackteams)<br>⬅️➡️  | slackblocks<br>[![](https://github.com/yonicd/slackblocks/workflows/R-mac/badge.svg)](https://github.com/yonicd/slackblocks)<br>⬇️ |
@@ -74,8 +74,6 @@ hist(runif(2*y))
 venue = 'gh', advertise = FALSE, show = FALSE)%>%
 reprex_to_blocks()
 #> Rendering reprex...
-#> -|-|-|-|-| 
-#> Rendered reprex is on the clipboard.
 ```
 
     #> [
@@ -88,7 +86,7 @@ reprex_to_blocks()
     #>   },
     #>   {
     #>     "type": "image",
-    #>     "image_url": "https://i.imgur.com/fStUJn1.png",
+    #>     "image_url": "https://i.imgur.com/oycN8JX.png",
     #>     "alt_text": "image"
     #>   },
     #>   {
