@@ -1,6 +1,6 @@
 Tests and Coverage
 ================
-20 February, 2020 20:59:54
+20 February, 2020 21:26:32
 
   - [Coverage](#coverage)
   - [Unit Tests](#unit-tests)
@@ -15,12 +15,12 @@ Coverage summary is created using the
 
 | Object                                            | Coverage (%) |
 | :------------------------------------------------ | :----------: |
-| slackreprex                                       |    30.85     |
+| slackreprex                                       |    37.23     |
 | [R/classify\_post.R](../R/classify_post.R)        |     0.00     |
 | [R/post\_reprex.R](../R/post_reprex.R)            |     0.00     |
-| [R/prep\_si.R](../R/prep_si.R)                    |     0.00     |
 | [R/reprex.R](../R/reprex.R)                       |     0.00     |
 | [R/sessioninfo.R](../R/sessioninfo.R)             |     0.00     |
+| [R/prep\_si.R](../R/prep_si.R)                    |    85.71     |
 | [R/reprex\_to\_blocks.R](../R/reprex_to_blocks.R) |    100.00    |
 
 <br>
@@ -30,23 +30,28 @@ Coverage summary is created using the
 Unit Test summary is created using the
 [testthat](https://github.com/r-lib/testthat) package.
 
-| file                                  | n | time | error | failed | skipped | warning |
-| :------------------------------------ | -: | ---: | ----: | -----: | ------: | ------: |
-| [test-check.R](testthat/test-check.R) | 7 | 0.02 |     0 |      0 |       0 |       0 |
+| file                                  | n |  time | error | failed | skipped | warning |
+| :------------------------------------ | -: | ----: | ----: | -----: | ------: | ------: |
+| [test-check.R](testthat/test-check.R) | 7 | 0.007 |     0 |      0 |       0 |       0 |
+| [test-si.R](testthat/test-si.R)       | 4 | 0.004 |     0 |      0 |       0 |       0 |
 
 <details closed>
 
 <summary> Show Detailed Test Results </summary>
 
-| file                                      | context          | test                  | status | n |  time |
-| :---------------------------------------- | :--------------- | :-------------------- | :----- | -: | ----: |
-| [test-check.R](testthat/test-check.R#L29) | reprex to blocks | class: no\_fig        | PASS   | 1 | 0.016 |
-| [test-check.R](testthat/test-check.R#L33) | reprex to blocks | class: err            | PASS   | 1 | 0.001 |
-| [test-check.R](testthat/test-check.R#L37) | reprex to blocks | class: fig            | PASS   | 1 | 0.001 |
-| [test-check.R](testthat/test-check.R#L45) | reprex to blocks | element type: no\_fig | PASS   | 1 | 0.001 |
-| [test-check.R](testthat/test-check.R#L49) | reprex to blocks | element type: err     | PASS   | 1 | 0.000 |
-| [test-check.R](testthat/test-check.R#L53) | reprex to blocks | element type: err emo | PASS   | 1 | 0.000 |
-| [test-check.R](testthat/test-check.R#L57) | reprex to blocks | element type: fig     | PASS   | 1 | 0.001 |
+| file                                      | context          | test                                      | status | n |  time |
+| :---------------------------------------- | :--------------- | :---------------------------------------- | :----- | -: | ----: |
+| [test-check.R](testthat/test-check.R#L29) | reprex to blocks | class: no\_fig                            | PASS   | 1 | 0.001 |
+| [test-check.R](testthat/test-check.R#L33) | reprex to blocks | class: err                                | PASS   | 1 | 0.001 |
+| [test-check.R](testthat/test-check.R#L37) | reprex to blocks | class: fig                                | PASS   | 1 | 0.001 |
+| [test-check.R](testthat/test-check.R#L45) | reprex to blocks | element type: no\_fig                     | PASS   | 1 | 0.001 |
+| [test-check.R](testthat/test-check.R#L49) | reprex to blocks | element type: err                         | PASS   | 1 | 0.001 |
+| [test-check.R](testthat/test-check.R#L53) | reprex to blocks | element type: err emo                     | PASS   | 1 | 0.001 |
+| [test-check.R](testthat/test-check.R#L57) | reprex to blocks | element type: fig                         | PASS   | 1 | 0.001 |
+| [test-si.R](testthat/test-si.R#L8)        | sessioninfo      | sessioninfo classification: file exists   | PASS   | 1 | 0.001 |
+| [test-si.R](testthat/test-si.R#L12)       | sessioninfo      | sessioninfo classification: file contents | PASS   | 1 | 0.001 |
+| [test-si.R](testthat/test-si.R#L22)       | sessioninfo      | sessionInfo classification: file exists   | PASS   | 1 | 0.001 |
+| [test-si.R](testthat/test-si.R#L26)       | sessioninfo      | sessionInfo classification: file contents | PASS   | 1 | 0.001 |
 
 </details>
 

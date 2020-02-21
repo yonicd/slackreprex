@@ -88,7 +88,7 @@ reprex_to_blocks()
     #>   },
     #>   {
     #>     "type": "image",
-    #>     "image_url": "https://i.imgur.com/43VDpjv.png",
+    #>     "image_url": "https://i.imgur.com/eXcz68X.png",
     #>     "alt_text": "image"
     #>   },
     #>   {
