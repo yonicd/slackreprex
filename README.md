@@ -35,19 +35,46 @@ The goal of `slackreprex` is to post reprex outputs to Slack using
 remotes::install_github("yonicd/slackreprex")
 ```
 
-## Example
+## Setup
 
-This is a basic example which shows you how to solve a common problem:
+To set up the required Slack Token API to interact with Slack teams you
+are a part of you need to first install
+[slackteams](https://github.com/yonicd/slackteams#create-an-incoming-webhook)
+and follow the instructions on create an incoming webhook (don’t worry
+there is a button to press for this)
+
+Once you finish this process you are ready to try out the following
+example\!
+
+## Example
 
 ``` r
 library(slackreprex)
 library(magrittr)
 ```
 
+### Load and Activate a Team
+
 ``` r
-slackteams::load_team_dcf(team = 'r4ds')
-slackteams::activate_team('r4ds')
+# load teams stored in '~/.slackteams'
+slackteams::load_teams()
+
+# using the first loaded team
+team <- slackteams::get_teams()[1]
+
+# activating the team
+slackteams::activate_team(team)
 ```
+
+### Post Reprex\!
+
+You can post a reprex to a public channel, a private channel, a direct
+message, or a group private message.
+
+You can attach a message before the reprex with `text` that states your
+problem in your own words. The reprex itself will be automatically be
+placed in a thread so the channel won’t get too noisy and the help you
+receive is self contained in the original question.
 
 ``` r
 slack_reprex({
@@ -61,80 +88,41 @@ channel = 'yonicd')
 
 <img src="man/figures/plot_example.png" width="100%" />
 
-## Reprex Under the Hood
+Notice the little flashing siren emoji. Those pop up automatically when
+an error is found in the reprex chunk.
 
-### Convert reprex `gh` output to slack blocks
+### Threads
+
+You can also post into an active thread. Click on the three vertical
+dots (‘more actions’) on the message you are responding to and select
+‘Copy link’.
+
+<img src="man/figures/more_actions.png" width="100%" />
+
+Use this link in the channel argument. That’s it…
 
 ``` r
-reprex_block <- reprex::reprex({
-x <- 10
-hist(runif(x))
-hist(runif(2*y))
+slack_reprex({
+  x <- 10
+  hist(runif(x))
+  hist(runif(2*x))
 },
-venue = 'gh', advertise = FALSE, show = FALSE)%>%
-reprex_to_blocks()
-#> Rendering reprex...
-#> -\|/-\|/- 
-#> Rendered reprex is on the clipboard.
+text = 'My correction is ...  ',
+channel = 'https://rfordatascience.slack.com/archives/DM4KNRWBY/p1582253357008800')
 ```
 
-    #> [
-    #>   {
-    #>     "type": "section",
-    #>     "text": {
-    #>       "type": "mrkdwn",
-    #>       "text": "```\nx <- 10\nhist(runif(x))\n```"
-    #>     }
-    #>   },
-    #>   {
-    #>     "type": "image",
-    #>     "image_url": "https://i.imgur.com/eXcz68X.png",
-    #>     "alt_text": "image"
-    #>   },
-    #>   {
-    #>     "type": "context",
-    #>     "elements": [
-    #>       {
-    #>         "type": "mrkdwn",
-    #>         "text": ":rotating_light:"
-    #>       },
-    #>       {
-    #>         "type": "mrkdwn",
-    #>         "text": "```\nhist(runif(2*y))\n#> Error in runif(2 * y): object 'y' not found\n```"
-    #>       }
-    #>     ]
-    #>   }
-    #> ]
+<img src="man/figures/thread_example.png" width="100%" />
 
-### post the blocks
+### Post sessioninfo
+
+You can also post your session info. If you have
+[sessioninfo](https://github.com/r-lib/sessioninfo) installed then that
+will be used by default, if you don’t then `sessionInfo()` will be used.
+The output will be posted to the channel as a `snippet` as the output
+can be pretty long and it is simpler to manage in this form.
 
 ``` r
-reprex_block%>%
-  slackblocks::post_block(
-    channel = 'yonicd'
-  )
+slackreprex::post_sessioninfo('yonicd')
 ```
 
-### Post with a question and attach the reprex into a thread.
-
-``` r
-q_txt <- slackblocks::block_text(
-  text = 'My Question is ...'
-)
-```
-
-    #> {
-    #>   "type": "mrkdwn",
-    #>   "text": "My Question is ..."
-    #> }
-
-``` r
-
-q_txt%>%
-slackblocks::post_block(
-  channel = 'yonicd'
-    )%>%
-slackblocks::post_thread(
-  block = reprex_block
-)
-```
+<img src="man/figures/si_example.png" width="100%" />
