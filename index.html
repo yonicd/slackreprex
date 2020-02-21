@@ -110,14 +110,34 @@
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># install.packages("remotes")</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>remotes<span class="op">::</span><span class="kw"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"yonicd/slackreprex"</span>)</span></code></pre></div>
 </div>
+<div id="setup" class="section level2">
+<h2 class="hasAnchor">
+<a href="#setup" class="anchor"></a>Setup</h2>
+<p>To set up the required Slack Token API to interact with Slack teams you are a part of you need to first install <a href="https://github.com/yonicd/slackteams#create-an-incoming-webhook">slackteams</a> and follow the instructions on create an incoming webhook (don’t worry there is a button to press for this)</p>
+<p>Once you finish this process you are ready to try out the following example!</p>
+</div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(slackreprex)</span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(magrittr)</span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>slackteams<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/slackteams/man/load_team_dcf.html">load_team_dcf</a></span>(<span class="dt">team =</span> <span class="st">'r4ds'</span>)</span>
-<span id="cb3-2"><a href="#cb3-2"></a>slackteams<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/slackteams/man/manage_team.html">activate_team</a></span>(<span class="st">'r4ds'</span>)</span></code></pre></div>
+<div id="load-and-activate-a-team" class="section level3">
+<h3 class="hasAnchor">
+<a href="#load-and-activate-a-team" class="anchor"></a>Load and Activate a Team</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># load teams stored in '~/.slackteams'</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>slackteams<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/slackteams/man/load_teams.html">load_teams</a></span>()</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co"># using the first loaded team</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>team &lt;-<span class="st"> </span>slackteams<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/slackteams/man/get_methods.html">get_teams</a></span>()[<span class="dv">1</span>]</span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co"># activating the team</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>slackteams<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/slackteams/man/manage_team.html">activate_team</a></span>(team)</span></code></pre></div>
+</div>
+<div id="post-reprex" class="section level3">
+<h3 class="hasAnchor">
+<a href="#post-reprex" class="anchor"></a>Post Reprex!</h3>
+<p>You can post a reprex to a public channel, a private channel, a direct message, or a group private message.</p>
+<p>You can attach a message before the reprex with <code>text</code> that states your problem in your own words. The reprex itself will be automatically be placed in a thread so the channel won’t get too noisy and the help you receive is self contained in the original question.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw"><a href="reference/slack_reprex.html">slack_reprex</a></span>({</span>
 <span id="cb4-2"><a href="#cb4-2"></a>  x &lt;-<span class="st"> </span><span class="dv">10</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a>  <span class="kw"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span>(<span class="kw"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span>(x))</span>
@@ -126,75 +146,29 @@
 <span id="cb4-6"><a href="#cb4-6"></a><span class="dt">text =</span> <span class="st">'My question is ...) '</span>,</span>
 <span id="cb4-7"><a href="#cb4-7"></a><span class="dt">channel =</span> <span class="st">'yonicd'</span>)</span></code></pre></div>
 <p><img src="reference/figures/plot_example.png" width="100%"></p>
+<p>Notice the little flashing siren emoji. Those pop up automatically when an error is found in the reprex chunk.</p>
 </div>
-<div id="reprex-under-the-hood" class="section level2">
-<h2 class="hasAnchor">
-<a href="#reprex-under-the-hood" class="anchor"></a>Reprex Under the Hood</h2>
-<div id="convert-reprex-gh-output-to-slack-blocks" class="section level3">
+<div id="threads" class="section level3">
 <h3 class="hasAnchor">
-<a href="#convert-reprex-gh-output-to-slack-blocks" class="anchor"></a>Convert reprex <code>gh</code> output to slack blocks</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>reprex_block &lt;-<span class="st"> </span>reprex<span class="op">::</span><span class="kw"><a href="https://reprex.tidyverse.org/reference/reprex.html">reprex</a></span>({</span>
-<span id="cb5-2"><a href="#cb5-2"></a>x &lt;-<span class="st"> </span><span class="dv">10</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="kw"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span>(<span class="kw"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span>(x))</span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="kw"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span>(<span class="kw"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span>(<span class="dv">2</span><span class="op">*</span>y))</span>
+<a href="#threads" class="anchor"></a>Threads</h3>
+<p>You can also post into an active thread. Click on the three vertical dots (‘more actions’) on the message you are responding to and select ‘Copy link’.</p>
+<p><img src="reference/figures/more_actions.png" width="100%"></p>
+<p>Use this link in the channel argument. That’s it…</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw"><a href="reference/slack_reprex.html">slack_reprex</a></span>({</span>
+<span id="cb5-2"><a href="#cb5-2"></a>  x &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="kw"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span>(<span class="kw"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span>(x))</span>
+<span id="cb5-4"><a href="#cb5-4"></a>  <span class="kw"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span>(<span class="kw"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span>(<span class="dv">2</span><span class="op">*</span>x))</span>
 <span id="cb5-5"><a href="#cb5-5"></a>},</span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="dt">venue =</span> <span class="st">'gh'</span>, <span class="dt">advertise =</span> <span class="ot">FALSE</span>, <span class="dt">show =</span> <span class="ot">FALSE</span>)<span class="op">%&gt;%</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="kw"><a href="reference/reprex_to_blocks.html">reprex_to_blocks</a></span>()</span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="co">#&gt; Rendering reprex...</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">#&gt; [</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="co">#&gt;   {</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="co">#&gt;     "type": "section",</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="co">#&gt;     "text": {</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="co">#&gt;       "type": "mrkdwn",</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="co">#&gt;       "text": "```\nx &lt;- 10\nhist(runif(x))\n```"</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="co">#&gt;     }</span></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="co">#&gt;   },</span></span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="co">#&gt;   {</span></span>
-<span id="cb6-10"><a href="#cb6-10"></a><span class="co">#&gt;     "type": "image",</span></span>
-<span id="cb6-11"><a href="#cb6-11"></a><span class="co">#&gt;     "image_url": "https://i.imgur.com/fe1Sqyd.png",</span></span>
-<span id="cb6-12"><a href="#cb6-12"></a><span class="co">#&gt;     "alt_text": "image"</span></span>
-<span id="cb6-13"><a href="#cb6-13"></a><span class="co">#&gt;   },</span></span>
-<span id="cb6-14"><a href="#cb6-14"></a><span class="co">#&gt;   {</span></span>
-<span id="cb6-15"><a href="#cb6-15"></a><span class="co">#&gt;     "type": "context",</span></span>
-<span id="cb6-16"><a href="#cb6-16"></a><span class="co">#&gt;     "elements": [</span></span>
-<span id="cb6-17"><a href="#cb6-17"></a><span class="co">#&gt;       {</span></span>
-<span id="cb6-18"><a href="#cb6-18"></a><span class="co">#&gt;         "type": "mrkdwn",</span></span>
-<span id="cb6-19"><a href="#cb6-19"></a><span class="co">#&gt;         "text": ":rotating_light:"</span></span>
-<span id="cb6-20"><a href="#cb6-20"></a><span class="co">#&gt;       },</span></span>
-<span id="cb6-21"><a href="#cb6-21"></a><span class="co">#&gt;       {</span></span>
-<span id="cb6-22"><a href="#cb6-22"></a><span class="co">#&gt;         "type": "mrkdwn",</span></span>
-<span id="cb6-23"><a href="#cb6-23"></a><span class="co">#&gt;         "text": "```\nhist(runif(2*y))\n#&gt; Error in runif(2 * y): object 'y' not found\n```"</span></span>
-<span id="cb6-24"><a href="#cb6-24"></a><span class="co">#&gt;       }</span></span>
-<span id="cb6-25"><a href="#cb6-25"></a><span class="co">#&gt;     ]</span></span>
-<span id="cb6-26"><a href="#cb6-26"></a><span class="co">#&gt;   }</span></span>
-<span id="cb6-27"><a href="#cb6-27"></a><span class="co">#&gt; ]</span></span></code></pre></div>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="dt">text =</span> <span class="st">'My correction is ...  '</span>,</span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="dt">channel =</span> <span class="st">'https://rfordatascience.slack.com/archives/DM4KNRWBY/p1582253357008800'</span>)</span></code></pre></div>
+<p><img src="reference/figures/thread_example.png" width="100%"></p>
 </div>
-<div id="post-the-blocks" class="section level3">
+<div id="post-sessioninfo" class="section level3">
 <h3 class="hasAnchor">
-<a href="#post-the-blocks" class="anchor"></a>post the blocks</h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>reprex_block<span class="op">%&gt;%</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="st">  </span>slackblocks<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/slackblocks/man/post_block.html">post_block</a></span>(</span>
-<span id="cb7-3"><a href="#cb7-3"></a>    <span class="dt">channel =</span> <span class="st">'yonicd'</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a>  )</span></code></pre></div>
-</div>
-<div id="post-with-a-question-and-attach-the-reprex-into-a-thread" class="section level3">
-<h3 class="hasAnchor">
-<a href="#post-with-a-question-and-attach-the-reprex-into-a-thread" class="anchor"></a>Post with a question and attach the reprex into a thread.</h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>q_txt &lt;-<span class="st"> </span>slackblocks<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/slackblocks/man/block_text.html">block_text</a></span>(</span>
-<span id="cb8-2"><a href="#cb8-2"></a>  <span class="dt">text =</span> <span class="st">'My Question is ...'</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a>)</span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">#&gt; {</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="co">#&gt;   "type": "mrkdwn",</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="co">#&gt;   "text": "My Question is ..."</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="co">#&gt; }</span></span></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a></span>
-<span id="cb10-2"><a href="#cb10-2"></a>q_txt<span class="op">%&gt;%</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a>slackblocks<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/slackblocks/man/post_block.html">post_block</a></span>(</span>
-<span id="cb10-4"><a href="#cb10-4"></a>  <span class="dt">channel =</span> <span class="st">'yonicd'</span></span>
-<span id="cb10-5"><a href="#cb10-5"></a>    )<span class="op">%&gt;%</span></span>
-<span id="cb10-6"><a href="#cb10-6"></a>slackblocks<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/slackblocks/man/post_thread.html">post_thread</a></span>(</span>
-<span id="cb10-7"><a href="#cb10-7"></a>  <span class="dt">block =</span> reprex_block</span>
-<span id="cb10-8"><a href="#cb10-8"></a>)</span></code></pre></div>
+<a href="#post-sessioninfo" class="anchor"></a>Post sessioninfo</h3>
+<p>You can also post your session info. If you have <a href="https://github.com/r-lib/sessioninfo">sessioninfo</a> installed then that will be used by default, if you don’t then <code><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo()</a></code> will be used. The output will be posted to the channel as a <code>snippet</code> as the output can be pretty long and it is simpler to manage in this form.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>slackreprex<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/slackreprex/man/post_sessioninfo.html">post_sessioninfo</a></span>(<span class="st">'yonicd'</span>)</span></code></pre></div>
+<p><img src="reference/figures/si_example.png" width="100%"></p>
 </div>
 </div>
 </div>
