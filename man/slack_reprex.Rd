@@ -4,7 +4,13 @@
 \alias{slack_reprex}
 \title{post reprex output to slack}
 \usage{
-slack_reprex(..., text = NULL, channel, token = Sys.getenv("SLACK_API_TOKEN"))
+slack_reprex(
+  ...,
+  text = NULL,
+  channel,
+  ts = NULL,
+  token = Sys.getenv("SLACK_API_TOKEN")
+)
 }
 \arguments{
 \item{...}{code to evaluate in reprex}
@@ -12,6 +18,8 @@ slack_reprex(..., text = NULL, channel, token = Sys.getenv("SLACK_API_TOKEN"))
 \item{text}{question text to attach to the reprex blocks}
 
 \item{channel}{character, channel to post to}
+
+\item{ts}{character, Slack API time stamp, Default: NULL}
 
 \item{token}{Slack API token, Default: Sys.getenv("SLACK_API_TOKEN")}
 }
@@ -24,12 +32,14 @@ posts the blocks to a slack conversation which can be a channel,
 a direct message, a group message or a thread in one of them.
 }
 \details{
-channel can be on of the following in an activated team
+\code{channel} can be on of the following in an activated team
 \itemize{
 \item name of channel
 \item channel id
 \item link to a message in a channel, direct message or a group message
 }
+
+A pairing of \code{channel} and \code{ts} can be used instead of a link to post to a thread.
 }
 \examples{
 \dontrun{

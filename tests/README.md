@@ -1,6 +1,6 @@
 Tests and Coverage
 ================
-19 February, 2020 14:17:31
+20 February, 2020 20:59:54
 
   - [Coverage](#coverage)
   - [Unit Tests](#unit-tests)
@@ -15,9 +15,13 @@ Coverage summary is created using the
 
 | Object                                            | Coverage (%) |
 | :------------------------------------------------ | :----------: |
-| slackreprex                                       |      58      |
-| [R/reprex.R](../R/reprex.R)                       |      0       |
-| [R/reprex\_to\_blocks.R](../R/reprex_to_blocks.R) |     100      |
+| slackreprex                                       |    30.85     |
+| [R/classify\_post.R](../R/classify_post.R)        |     0.00     |
+| [R/post\_reprex.R](../R/post_reprex.R)            |     0.00     |
+| [R/prep\_si.R](../R/prep_si.R)                    |     0.00     |
+| [R/reprex.R](../R/reprex.R)                       |     0.00     |
+| [R/sessioninfo.R](../R/sessioninfo.R)             |     0.00     |
+| [R/reprex\_to\_blocks.R](../R/reprex_to_blocks.R) |    100.00    |
 
 <br>
 
@@ -28,7 +32,7 @@ Unit Test summary is created using the
 
 | file                                  | n | time | error | failed | skipped | warning |
 | :------------------------------------ | -: | ---: | ----: | -----: | ------: | ------: |
-| [test-check.R](testthat/test-check.R) | 7 | 0.06 |     0 |      0 |       0 |       0 |
+| [test-check.R](testthat/test-check.R) | 7 | 0.02 |     0 |      0 |       0 |       0 |
 
 <details closed>
 
@@ -36,12 +40,12 @@ Unit Test summary is created using the
 
 | file                                      | context          | test                  | status | n |  time |
 | :---------------------------------------- | :--------------- | :-------------------- | :----- | -: | ----: |
-| [test-check.R](testthat/test-check.R#L29) | reprex to blocks | class: no\_fig        | PASS   | 1 | 0.053 |
+| [test-check.R](testthat/test-check.R#L29) | reprex to blocks | class: no\_fig        | PASS   | 1 | 0.016 |
 | [test-check.R](testthat/test-check.R#L33) | reprex to blocks | class: err            | PASS   | 1 | 0.001 |
 | [test-check.R](testthat/test-check.R#L37) | reprex to blocks | class: fig            | PASS   | 1 | 0.001 |
-| [test-check.R](testthat/test-check.R#L45) | reprex to blocks | element type: no\_fig | PASS   | 1 | 0.002 |
-| [test-check.R](testthat/test-check.R#L49) | reprex to blocks | element type: err     | PASS   | 1 | 0.001 |
-| [test-check.R](testthat/test-check.R#L53) | reprex to blocks | element type: err emo | PASS   | 1 | 0.001 |
+| [test-check.R](testthat/test-check.R#L45) | reprex to blocks | element type: no\_fig | PASS   | 1 | 0.001 |
+| [test-check.R](testthat/test-check.R#L49) | reprex to blocks | element type: err     | PASS   | 1 | 0.000 |
+| [test-check.R](testthat/test-check.R#L53) | reprex to blocks | element type: err emo | PASS   | 1 | 0.000 |
 | [test-check.R](testthat/test-check.R#L57) | reprex to blocks | element type: fig     | PASS   | 1 | 0.001 |
 
 </details>
@@ -50,19 +54,19 @@ Unit Test summary is created using the
 
 <summary> Session Info </summary>
 
-| Field    | Value                               |                                                                                                                                                                                                                                                                     |
-| :------- | :---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Version  | R version 3.6.2 (2019-12-12)        |                                                                                                                                                                                                                                                                     |
-| Platform | x86\_64-apple-darwin15.6.0 (64-bit) | <a href="https://github.com/yonicd/slackreprex/commit/7634263f93e5a0fb6f5abff923dcba72b5d4ae98/checks" target="_blank"><span title="Built on Github Actions">![](https://github.com/metrumresearchgroup/covrpage/blob/actions/inst/logo/gh.png?raw=true)</span></a> |
-| Running  | macOS Catalina 10.15.3              |                                                                                                                                                                                                                                                                     |
-| Language | en\_US                              |                                                                                                                                                                                                                                                                     |
-| Timezone | UTC                                 |                                                                                                                                                                                                                                                                     |
+| Field    | Value                               |
+| :------- | :---------------------------------- |
+| Version  | R version 3.6.1 (2019-07-05)        |
+| Platform | x86\_64-apple-darwin15.6.0 (64-bit) |
+| Running  | macOS Mojave 10.14.5                |
+| Language | en\_US                              |
+| Timezone | America/New\_York                   |
 
 | Package  | Version |
 | :------- | :------ |
-| testthat | 2.3.1   |
-| covr     | 3.4.0   |
-| covrpage | 0.0.71  |
+| testthat | 2.2.1   |
+| covr     | 3.3.0   |
+| covrpage | 0.0.70  |
 
 </details>
 

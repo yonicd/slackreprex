@@ -5,12 +5,16 @@
 #' @param ... code to evaluate in reprex
 #' @param text question text to attach to the reprex blocks
 #' @param channel character, channel to post to
+#' @param ts character, Slack API time stamp, Default: NULL
 #' @param token Slack API token, Default: Sys.getenv("SLACK_API_TOKEN")
 #' @return [response][httr::response] from slack api
-#' @details channel can be on of the following in an activated team
+#' @details 
+#' `channel` can be on of the following in an activated team
 #'   - name of channel
 #'   - channel id
 #'   - link to a message in a channel, direct message or a group message
+#'   
+#' A pairing of `channel` and `ts` can be used instead of a link to post to a thread.
 #'   
 #' @examples 
 #' \dontrun{
@@ -33,10 +37,12 @@
 #' @seealso  [reprex][reprex::reprex]
 #' @rdname slack_reprex
 #' @export 
-#' @importFrom slackblocks post_block post_thread
+#' @importFrom slackblocks post_block post_thread prep_channel
 #' @importFrom reprex reprex
-slack_reprex <- function(..., text = NULL, channel, token = Sys.getenv('SLACK_API_TOKEN')){
+slack_reprex <- function(..., text = NULL, channel, ts = NULL, token = Sys.getenv('SLACK_API_TOKEN')){
   
+  channel <- slackblocks::prep_channel(channel,ts)
+
   rx <- reprex::reprex(
     ...,
     venue = 'gh',
@@ -45,27 +51,8 @@ slack_reprex <- function(..., text = NULL, channel, token = Sys.getenv('SLACK_AP
   
   reprex_block <- reprex_to_blocks(rx)
   
-  if(!is.null(text)){
-    
-    res <- slackblocks::post_block(
-      channel = channel, 
-      block   = slackblocks::block_text(text = text),
-      token   = token
-    )
-    
-    slackblocks::post_thread(
-      res   = res,
-      block = reprex_block
-    )
-    
-  }else{
+  reprex_block <- classify_post(reprex_block, text, channel)
 
-    slackblocks::post_block(
-      channel = channel, 
-      block   = reprex_block,
-      token   = token
-    )
-        
-  }
+  post_reprex(block = reprex_block, channel = channel, text = text, token = token)
 
 }
