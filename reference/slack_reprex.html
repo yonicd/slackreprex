@@ -71,7 +71,7 @@ a direct message, a group message or a thread in one of them." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">slackreprex</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2</span>
       </span>
     </div>
 
@@ -125,7 +125,13 @@ posts the blocks to a slack conversation which can be a channel,
 a direct message, a group message or a thread in one of them.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>slack_reprex</span>(<span class='no'>...</span>, <span class='kw'>text</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>channel</span>, <span class='kw'>token</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Sys.getenv.html'>Sys.getenv</a></span>(<span class='st'>"SLACK_API_TOKEN"</span>))</pre>
+    <pre class="usage"><span class='fu'>slack_reprex</span>(
+  <span class='no'>...</span>,
+  <span class='kw'>text</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='no'>channel</span>,
+  <span class='kw'>ts</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>token</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Sys.getenv.html'>Sys.getenv</a></span>(<span class='st'>"SLACK_API_TOKEN"</span>)
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -143,6 +149,10 @@ a direct message, a group message or a thread in one of them.</p>
       <td><p>character, channel to post to</p></td>
     </tr>
     <tr>
+      <th>ts</th>
+      <td><p>character, Slack API time stamp, Default: NULL</p></td>
+    </tr>
+    <tr>
       <th>token</th>
       <td><p>Slack API token, Default: Sys.getenv("SLACK_API_TOKEN")</p></td>
     </tr>
@@ -153,12 +163,13 @@ a direct message, a group message or a thread in one of them.</p>
     <p><a href='https://httr.r-lib.org/reference/response.html'>response</a> from slack api</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>channel can be on of the following in an activated team</p><ul>
+    <p><code>channel</code> can be on of the following in an activated team</p><ul>
 <li><p>name of channel</p></li>
 <li><p>channel id</p></li>
 <li><p>link to a message in a channel, direct message or a group message</p></li>
 </ul>
 
+<p>A pairing of <code>channel</code> and <code>ts</code> can be used instead of a link to post to a thread.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><a href='https://reprex.tidyverse.org/reference/reprex.html'>reprex</a></p></div>

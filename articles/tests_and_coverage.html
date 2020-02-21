@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">slackreprex</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2</span>
       </span>
     </div>
 
@@ -74,7 +74,7 @@
     <div class="page-header toc-ignore">
       <h1>Tests and Coverage</h1>
             
-            <h4 class="date">19 February, 2020 14:35:31</h4>
+            <h4 class="date">21 February, 2020 02:32:05</h4>
       
       
       <div class="hidden name"><code>tests_and_coverage.Rmd</code></div>
@@ -101,15 +101,31 @@
 <tbody>
 <tr class="odd">
 <td align="left">slackreprex</td>
-<td align="center">58</td>
+<td align="center">37.23</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://github.com/yonicd/slackreprex/tree/master/R/classify_post.R">R/classify_post.R</a></td>
+<td align="center">0.00</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://github.com/yonicd/slackreprex/tree/master/R/post_reprex.R">R/post_reprex.R</a></td>
+<td align="center">0.00</td>
 </tr>
 <tr class="even">
 <td align="left"><a href="https://github.com/yonicd/slackreprex/tree/master/R/reprex.R">R/reprex.R</a></td>
-<td align="center">0</td>
+<td align="center">0.00</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://github.com/yonicd/slackreprex/tree/master/R/sessioninfo.R">R/sessioninfo.R</a></td>
+<td align="center">0.00</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://github.com/yonicd/slackreprex/tree/master/R/prep_si.R">R/prep_si.R</a></td>
+<td align="center">85.71</td>
 </tr>
 <tr class="odd">
 <td align="left"><a href="https://github.com/yonicd/slackreprex/tree/master/R/reprex_to_blocks.R">R/reprex_to_blocks.R</a></td>
-<td align="center">100</td>
+<td align="center">100.00</td>
 </tr>
 </tbody>
 </table>
@@ -129,15 +145,26 @@
 <th align="right">skipped</th>
 <th align="right">warning</th>
 </tr></thead>
-<tbody><tr class="odd">
+<tbody>
+<tr class="odd">
 <td align="left"><a href="https://github.com/yonicd/slackreprex/tree/master/tests/testthat/test-check.R">test-check.R</a></td>
 <td align="right">7</td>
-<td align="right">0.047</td>
+<td align="right">0.042</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
-</tr></tbody>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://github.com/yonicd/slackreprex/tree/master/tests/testthat/test-si.R">test-si.R</a></td>
+<td align="right">4</td>
+<td align="right">0.005</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+</tbody>
 </table>
 <details closed><p><summary> Show Detailed Test Results </summary></p>
 <table class="table">
@@ -156,7 +183,7 @@
 <td align="left">class: no_fig</td>
 <td align="left">PASS</td>
 <td align="right">1</td>
-<td align="right">0.040</td>
+<td align="right">0.035</td>
 </tr>
 <tr class="even">
 <td align="left"><a href="https://github.com/yonicd/slackreprex/tree/master/tests/testthat/test-check.R#L33">test-check.R</a></td>
@@ -206,6 +233,38 @@
 <td align="right">1</td>
 <td align="right">0.001</td>
 </tr>
+<tr class="even">
+<td align="left"><a href="https://github.com/yonicd/slackreprex/tree/master/tests/testthat/test-si.R#L8">test-si.R</a></td>
+<td align="left">sessioninfo</td>
+<td align="left">sessioninfo classification: file exists</td>
+<td align="left">PASS</td>
+<td align="right">1</td>
+<td align="right">0.002</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://github.com/yonicd/slackreprex/tree/master/tests/testthat/test-si.R#L12">test-si.R</a></td>
+<td align="left">sessioninfo</td>
+<td align="left">sessioninfo classification: file contents</td>
+<td align="left">PASS</td>
+<td align="right">1</td>
+<td align="right">0.001</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://github.com/yonicd/slackreprex/tree/master/tests/testthat/test-si.R#L22">test-si.R</a></td>
+<td align="left">sessioninfo</td>
+<td align="left">sessionInfo classification: file exists</td>
+<td align="left">PASS</td>
+<td align="right">1</td>
+<td align="right">0.001</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://github.com/yonicd/slackreprex/tree/master/tests/testthat/test-si.R#L26">test-si.R</a></td>
+<td align="left">sessioninfo</td>
+<td align="left">sessionInfo classification: file contents</td>
+<td align="left">PASS</td>
+<td align="right">1</td>
+<td align="right">0.001</td>
+</tr>
 </tbody>
 </table></details><details><p><summary> Session Info </summary></p>
 <table class="table">
@@ -223,7 +282,7 @@
 <tr class="even">
 <td align="left">Platform</td>
 <td align="left">x86_64-apple-darwin15.6.0 (64-bit)</td>
-<td><a href="https://github.com/yonicd/slackreprex/commit/637fdb1a9f3d90f6f0074cbdee31c3e9470638a5/checks" target="_blank"><span title="Built on Github Actions"><img src="https://github.com/metrumresearchgroup/covrpage/blob/actions/inst/logo/gh.png?raw=true"></span></a></td>
+<td><a href="https://github.com/yonicd/slackreprex/commit/9e27edf6cff27d36571489745ddfd2c3c68e9dff/checks" target="_blank"><span title="Built on Github Actions"><img src="https://github.com/metrumresearchgroup/covrpage/blob/actions/inst/logo/gh.png?raw=true"></span></a></td>
 </tr>
 <tr class="odd">
 <td align="left">Running</td>
