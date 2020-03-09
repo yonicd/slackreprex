@@ -1,6 +1,6 @@
 Tests and Coverage
 ================
-21 February, 2020 03:12:46
+09 March, 2020 00:44:18
 
   - [Coverage](#coverage)
   - [Unit Tests](#unit-tests)
@@ -32,7 +32,7 @@ Unit Test summary is created using the
 
 | file                                  | n |  time | error | failed | skipped | warning |
 | :------------------------------------ | -: | ----: | ----: | -----: | ------: | ------: |
-| [test-check.R](testthat/test-check.R) | 7 | 0.045 |     0 |      0 |       0 |       0 |
+| [test-check.R](testthat/test-check.R) | 7 | 0.044 |     0 |      0 |       0 |       0 |
 | [test-si.R](testthat/test-si.R)       | 4 | 0.005 |     0 |      0 |       0 |       0 |
 
 <details closed>
@@ -45,7 +45,7 @@ Unit Test summary is created using the
 | [test-check.R](testthat/test-check.R#L33) | reprex to blocks | class: err                                | PASS   | 1 | 0.001 |
 | [test-check.R](testthat/test-check.R#L37) | reprex to blocks | class: fig                                | PASS   | 1 | 0.001 |
 | [test-check.R](testthat/test-check.R#L45) | reprex to blocks | element type: no\_fig                     | PASS   | 1 | 0.001 |
-| [test-check.R](testthat/test-check.R#L49) | reprex to blocks | element type: err                         | PASS   | 1 | 0.001 |
+| [test-check.R](testthat/test-check.R#L49) | reprex to blocks | element type: err                         | PASS   | 1 | 0.000 |
 | [test-check.R](testthat/test-check.R#L53) | reprex to blocks | element type: err emo                     | PASS   | 1 | 0.001 |
 | [test-check.R](testthat/test-check.R#L57) | reprex to blocks | element type: fig                         | PASS   | 1 | 0.001 |
 | [test-si.R](testthat/test-si.R#L8)        | sessioninfo      | sessioninfo classification: file exists   | PASS   | 1 | 0.002 |
@@ -62,15 +62,15 @@ Unit Test summary is created using the
 | Field    | Value                               |                                                                                                                                                                                                                                                                     |
 | :------- | :---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Version  | R version 3.6.2 (2019-12-12)        |                                                                                                                                                                                                                                                                     |
-| Platform | x86\_64-apple-darwin15.6.0 (64-bit) | <a href="https://github.com/yonicd/slackreprex/commit/17b70e6d82bd62017284d354d8391b79af38acc8/checks" target="_blank"><span title="Built on Github Actions">![](https://github.com/metrumresearchgroup/covrpage/blob/actions/inst/logo/gh.png?raw=true)</span></a> |
+| Platform | x86\_64-apple-darwin15.6.0 (64-bit) | <a href="https://github.com/yonicd/slackreprex/commit/f7aaa262e18d2a0b81ded13f88b898d6322a8d2c/checks" target="_blank"><span title="Built on Github Actions">![](https://github.com/metrumresearchgroup/covrpage/blob/actions/inst/logo/gh.png?raw=true)</span></a> |
 | Running  | macOS Catalina 10.15.3              |                                                                                                                                                                                                                                                                     |
 | Language | en\_US                              |                                                                                                                                                                                                                                                                     |
 | Timezone | UTC                                 |                                                                                                                                                                                                                                                                     |
 
 | Package  | Version |
 | :------- | :------ |
-| testthat | 2.3.1   |
-| covr     | 3.4.0   |
+| testthat | 2.3.2   |
+| covr     | 3.5.0   |
 | covrpage | 0.0.71  |
 
 </details>
