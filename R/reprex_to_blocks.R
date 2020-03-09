@@ -44,7 +44,7 @@
 #'  }}
 #' @rdname reprex_to_blocks
 #' @export 
-#' @importFrom slackblocks block_context block_text block_section block_image as.blocks
+#' @importFrom slackblocks context_block block_text section_block image_element as.blocks
 reprex_to_blocks <- function(x){
   
   rx_chr <- x[nzchar(x)]
@@ -62,12 +62,12 @@ reprex_to_blocks <- function(x){
     y <- gsub('^``` r','```',y)
     
     if(any(grepl('^#> Error',y))){
-      slackblocks::block_context(elements = list(
+      slackblocks::context_block(elements = list(
         slackblocks::block_text(text = ':rotating_light:'),
         slackblocks::block_text(paste0(y,collapse = '\n'))
       ))
     }else{
-      slackblocks::block_section(text = slackblocks::block_text(paste0(y,collapse = '\n') ))  
+      slackblocks::section_block(text = slackblocks::block_text(paste0(y,collapse = '\n') ))  
     }
     
     
@@ -81,7 +81,7 @@ reprex_to_blocks <- function(x){
   if(length(rx_img_idx)>0){
     
     rx_imgs <- lapply(rx_img_idx,function(x){
-      slackblocks::block_image(gsub('^!\\[\\]\\(|\\)','',rx_chr[x]))
+      slackblocks::image_element(gsub('^!\\[\\]\\(|\\)','',rx_chr[x]))
     })
     
     rx_combine_idx <- c(rx_combine_idx,rx_img_idx)

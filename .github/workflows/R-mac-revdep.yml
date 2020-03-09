@@ -38,8 +38,19 @@ jobs:
           path: ${{ env.R_LIBS_USER }}
           key: ${{ runner.os }}-r-${{ matrix.config.r }}-${{ hashFiles('DESCRIPTION') }}
 
+      - name: Install remotes and rcmdcheck
+        run: | 
+            "install.packages('remotes')"
+            "remotes::install_cran('rcmdcheck')"
+        shell: Rscript {0}
+
       - name: Install dependencies
-        run: Rscript -e "install.packages('remotes')" -e "remotes::install_deps(dependencies = TRUE)" -e "remotes::install_cran('rcmdcheck')"
+        run: | 
+            "remotes::install_deps(dependencies = TRUE)"
+        shell: Rscript {0}
+
+      - name: Install payload
+        run: Rscript -e "remotes::install_github('${{ github.event.client_payload.repository) }}@${{ github.event.client_payload.sha) }}', force = TRUE)"
 
       - name: Check
         run: Rscript -e "rcmdcheck::rcmdcheck(args = '${{ matrix.config.args }}', error_on = 'warning', check_dir = 'check')"
