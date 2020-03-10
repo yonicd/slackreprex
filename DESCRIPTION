@@ -1,6 +1,6 @@
 Package: slackreprex
 Title: Reprex for Slack
-Version: 0.0.3
+Version: 0.0.4
 Authors@R: 
     person(given = "Jonathan",
            family = "Sidi",
@@ -9,8 +9,8 @@ Authors@R:
            comment = c(ORCID = "0000-0002-4222-1819"))
 Description: Create Slack Blocks in R and POST reprex outputs for slack.
 Depends: R (>= 3.5.0)
-Imports: utils,reprex,slackblocks,slackcalls
-Remotes: yonicd/slackblocks,yonicd/slackcalls
+Imports: utils,details,reprex,slackblocks,slackcalls,slackteams
+Remotes: yonicd/slackblocks,yonicd/slackcalls,yonicd/slackteams
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
