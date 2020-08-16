@@ -7,7 +7,7 @@
 slack_reprex(
   ...,
   text = NULL,
-  channel,
+  channel = NULL,
   ts = NULL,
   token = Sys.getenv("SLACK_API_TOKEN")
 )

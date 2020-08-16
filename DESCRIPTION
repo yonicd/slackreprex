@@ -1,6 +1,6 @@
 Package: slackreprex
 Title: Reprex for Slack
-Version: 0.0.4
+Version: 0.0.5
 Authors@R: 
     person(given = "Jonathan",
            family = "Sidi",
@@ -15,7 +15,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.1
 Suggests: 
     sessioninfo,
     rmarkdown,

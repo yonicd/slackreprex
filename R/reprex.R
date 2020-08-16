@@ -39,15 +39,19 @@
 #' @export 
 #' @importFrom slackblocks post_block post_thread prep_channel
 #' @importFrom reprex reprex
-slack_reprex <- function(..., text = NULL, channel, ts = NULL, token = Sys.getenv('SLACK_API_TOKEN')){
+slack_reprex <- function(..., text = NULL, channel = NULL, ts = NULL, token = Sys.getenv('SLACK_API_TOKEN')){
   
-  channel <- slackblocks::prep_channel(channel,ts)
-
   rx <- reprex::reprex(
     ...,
     venue = 'gh',
     advertise = FALSE,
-    show = FALSE)
+    show = is.null(channel))
+  
+  if(is.null(channel)){
+   return(invisible(rx)) 
+  }
+  
+  channel <- slackblocks::prep_channel(channel,ts)
   
   reprex_block <- reprex_to_blocks(rx)
   
