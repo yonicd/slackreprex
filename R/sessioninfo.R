@@ -17,11 +17,6 @@
 #' \dontrun{
 #' if(interactive()){
 #' 
-#' # assumes '~/.slackteams' exists.
-#' slackteams::load_team()
-#' team <- slackteams::get_teams()[1]
-#' slackteams::activate_team(team)
-#'
 #' post_sessioninfo(channel = 'slackbot')
 #' 
 #'  }
@@ -30,10 +25,16 @@
 #' @export 
 #' @importFrom slackblocks prep_channel
 #' @importFrom utils sessionInfo
-#' @importFrom slackcalls upload_slack
+#' @importFrom slackposts file_post
 post_sessioninfo <- function(channel, ts = NULL, initial_comment = NULL, ..., token = Sys.getenv('SLACK_API_TOKEN')){
   
-  channel <- slackblocks::prep_channel(channel,ts)
+  chnl <- slackblocks::prep_channel(channel,ts)
+  thread_ts <- NULL
+  
+  if(inherits(chnl,'slackpost')){
+    channel <- chnl$channel
+    thread_ts <- chnl$thread_ts
+  }
   
   if(try(requireNamespace('sessioninfo',quietly = TRUE),silent = TRUE)){
     si <- prep_si(sessioninfo::session_info(...))
@@ -43,14 +44,14 @@ post_sessioninfo <- function(channel, ts = NULL, initial_comment = NULL, ..., to
 
   on.exit({unlink(si)},add = TRUE)
   
-  slackcalls::upload_slack(
+  slackposts::file_post(
       token = token,
       file = si,
       filename = 'sessioninfo.R',
       filetype = 'r',
       title = 'session info',
       channels = channel,
-      thread_ts = attr(channel,'thread_ts'),
+      thread_ts = thread_ts,
       initial_comment = initial_comment
   )
 

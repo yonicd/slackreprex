@@ -20,11 +20,6 @@
 #' \dontrun{
 #' if(interactive()){
 #' 
-#' # assumes '~/.slackteams' exists.
-#' slackteams::load_team()
-#' team <- slackteams::get_teams()[1]
-#' slackteams::activate_team(team)
-#' 
 #' slack_reprex({
 #'   x <- 10
 #'   hist(runif(x))
@@ -37,7 +32,7 @@
 #' @seealso  [reprex][reprex::reprex]
 #' @rdname slack_reprex
 #' @export 
-#' @importFrom slackblocks post_block post_thread prep_channel
+#' @importFrom slackblocks post_block prep_channel
 #' @importFrom reprex reprex
 slack_reprex <- function(..., text = NULL, channel = NULL, ts = NULL, token = Sys.getenv('SLACK_API_TOKEN')){
   

@@ -59,27 +59,13 @@ Once you finish this process you are ready to try out the following example!
 
 ```{r example}
 library(slackreprex)
-library(magrittr)
 ```
-
-### Load and Activate a Team
-
-```{r,eval = FALSE}
-# load teams stored in '~/.slackteams'
-slackteams::load_teams()
-
-# using the first loaded team
-team <- slackteams::get_teams()[1]
-
-# activating the team
-slackteams::activate_team(team)
-```
-
-### Post Reprex!
 
 You can post a reprex to a public channel, a private channel, a direct message, or a group private message. 
 
 You can attach a message before the reprex with `text` that states your problem in your own words. The reprex itself will be automatically be placed in a thread so the channel won't get too noisy and the help you receive is self contained in the original question.
+
+The channel must be a valid Channel ID, this can be confusing to find, to help out you can use `slackteams::validate_channel` to find what the ID of the channel you want to post to.
 
 ```{r,eval=FALSE}
 slack_reprex({
@@ -87,8 +73,9 @@ slack_reprex({
   hist(runif(x))
   hist(runif(2*y))
 },
-text = 'My question is ...) ',
-channel = 'yonicd')
+text = 'My question is ...)',
+channel = slackteams::validate_channel('yonicd')
+)
 ```
 
 ```{r,echo=FALSE}
@@ -126,9 +113,17 @@ knitr::include_graphics('man/figures/thread_example.png')
 You can also post your session info. If you have [sessioninfo](https://github.com/r-lib/sessioninfo) installed then that will be used by default, if you don't then `sessionInfo()` will be used. The output will be posted to the channel as a `snippet` as the output can be pretty long and it is simpler to manage in this form. 
 
 ```{r, eval=FALSE}
-slackreprex::post_sessioninfo('yonicd')
+slackreprex::post_sessioninfo(slackteams::validate_channel('yonicd'))
 ```
 
 ```{r,echo=FALSE}
 knitr::include_graphics('man/figures/si_example.png')
+```
+
+### Deleting a post
+
+If you want to delete a post you can use the following script from `slackposts`, the posts you are creating in the session are being saved in an internal environment and you can access the information needed in `post_last()` to delete your last post.
+
+```{r,eval = FALSE}
+slackposts::chat_delete(slackposts::post_last())
 ```

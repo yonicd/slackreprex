@@ -3,8 +3,7 @@
 }
 
 #' @importFrom details details
-#' @importFrom slackcalls upload_slack
-#' @importFrom slackteams validate_channel
+#' @importFrom slackposts file_post
 eng_slack <- function (options) {
   
   type <- options$type %n% "slack"
@@ -31,7 +30,13 @@ eng_slack <- function (options) {
   
   if(length(attr(code,'file'))>0){
     
-    res_fig <- slackcalls::upload_slack(channels = slackteams::validate_channel(options$channel), token = options$token, file = attr(code,'file'), filename = 'output.R',filetype = 'png')
+    res_fig <- slackposts::file_post(
+      channels = options$channel, 
+      token = options$token, 
+      file = attr(code,'file'), 
+      filename = 'output.R',
+      filetype = 'png'
+    )
     
   }
     

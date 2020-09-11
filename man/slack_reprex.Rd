@@ -45,11 +45,6 @@ A pairing of \code{channel} and \code{ts} can be used instead of a link to post 
 \dontrun{
 if(interactive()){
 
-# assumes '~/.slackteams' exists.
-slackteams::load_team()
-team <- slackteams::get_teams()[1]
-slackteams::activate_team(team)
-
 slack_reprex({
   x <- 10
   hist(runif(x))

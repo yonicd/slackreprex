@@ -50,23 +50,7 @@ example\!
 
 ``` r
 library(slackreprex)
-library(magrittr)
 ```
-
-### Load and Activate a Team
-
-``` r
-# load teams stored in '~/.slackteams'
-slackteams::load_teams()
-
-# using the first loaded team
-team <- slackteams::get_teams()[1]
-
-# activating the team
-slackteams::activate_team(team)
-```
-
-### Post Reprex\!
 
 You can post a reprex to a public channel, a private channel, a direct
 message, or a group private message.
@@ -76,14 +60,19 @@ problem in your own words. The reprex itself will be automatically be
 placed in a thread so the channel won’t get too noisy and the help you
 receive is self contained in the original question.
 
+The channel must be a valid Channel ID, this can be confusing to find,
+to help out you can use `slackteams::validate_channel` to find what the
+ID of the channel you want to post to.
+
 ``` r
 slack_reprex({
   x <- 10
   hist(runif(x))
   hist(runif(2*y))
 },
-text = 'My question is ...) ',
-channel = 'yonicd')
+text = 'My question is ...)',
+channel = slackteams::validate_channel('yonicd')
+)
 ```
 
 <img src="man/figures/plot_example.png" width="100%" />
@@ -122,7 +111,18 @@ The output will be posted to the channel as a `snippet` as the output
 can be pretty long and it is simpler to manage in this form.
 
 ``` r
-slackreprex::post_sessioninfo('yonicd')
+slackreprex::post_sessioninfo(slackteams::validate_channel('yonicd'))
 ```
 
 <img src="man/figures/si_example.png" width="100%" />
+
+### Deleting a post
+
+If you want to delete a post you can use the following script from
+`slackposts`, the posts you are creating in the session are being saved
+in an internal environment and you can access the information needed in
+`post_last()` to delete your last post.
+
+``` r
+slackposts::chat_delete(slackposts::post_last())
+```

@@ -2,13 +2,13 @@ classify_post <- function(block, text, channel){
 
   action <- 'no_thread'
     
-  if(inherits(channel,'post_default') & !is.null(text)){
+  if(inherits(channel,'character') & !is.null(text)){
 
     action <- 'new_thread'
       
   }
   
-  if(inherits(channel,'post_thread')){
+  if(inherits(channel,'slackpost')){
     
     action <- 'existing_thread'
     
