@@ -26,7 +26,7 @@ knitr::opts_chunk$set(
 `slackreprex` is a part of `slackverse`
 
 ```{r,echo = FALSE}
-pkgs <- sprintf('slack%s',c('calls','teams','blocks','threads','reprex'))
+pkgs <- sprintf('slack%s',c('calls','teams','posts','blocks','threads','reprex'))
 
 badges <- sprintf('%s<br>[![](https://github.com/yonicd/%s/workflows/R-mac/badge.svg)](https://github.com/yonicd/%s)',pkgs,pkgs,pkgs)
 
@@ -34,11 +34,12 @@ names(badges) <- pkgs
 
 ```
 
-|Get Data from Slack|Manage Slack|Send Data to Slack|
+||||
 |:-:|:-:|:-:|
-||`r badges[pkgs[1]]`<br>`r emo::ji('down_left_arrow')``r emo::ji('down_arrow')``r emo::ji('down_right_arrow')`||
-|`r badges[pkgs[4]]`|`r badges[pkgs[2]]`<br>`r emo::ji('left_arrow')``r emo::ji('right_arrow')`|`r badges[pkgs[3]]`<br>`r emo::ji('down_arrow')`|
-|||`r badges[pkgs[5]]`|
+||`r badges[pkgs[1]]`||
+|`r badges[pkgs[5]]`|`r badges[pkgs[2]]`|`r badges[pkgs[3]]`|
+|||`r badges[pkgs[4]]`|
+|||`r badges[pkgs[6]]`|
 
 The goal of `slackreprex` is to post reprex outputs to Slack using `slackblocks`.
 
