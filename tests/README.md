@@ -1,6 +1,6 @@
 Tests and Coverage
 ================
-12 September, 2020 11:02:26
+17 September, 2020 18:32:22
 
   - [Coverage](#coverage)
   - [Unit Tests](#unit-tests)
@@ -15,7 +15,7 @@ Coverage summary is created using the
 
 | Object                                            | Coverage (%) |
 | :------------------------------------------------ | :----------: |
-| slackreprex                                       |    25.15     |
+| slackreprex                                       |    24.42     |
 | [R/classify\_post.R](../R/classify_post.R)        |     0.00     |
 | [R/engine.R](../R/engine.R)                       |     0.00     |
 | [R/post\_reprex.R](../R/post_reprex.R)            |     0.00     |
@@ -33,8 +33,8 @@ Unit Test summary is created using the
 
 | file                                  | n |  time | error | failed | skipped | warning |
 | :------------------------------------ | -: | ----: | ----: | -----: | ------: | ------: |
-| [test-check.R](testthat/test-check.R) | 7 | 0.057 |     0 |      0 |       0 |       0 |
-| [test-si.R](testthat/test-si.R)       | 4 | 0.004 |     0 |      0 |       0 |       0 |
+| [test-check.R](testthat/test-check.R) | 7 | 0.062 |     0 |      0 |       0 |       0 |
+| [test-si.R](testthat/test-si.R)       | 4 | 0.005 |     0 |      0 |       0 |       0 |
 
 <details closed>
 
@@ -42,15 +42,15 @@ Unit Test summary is created using the
 
 | file                                      | context          | test                                      | status | n |  time |
 | :---------------------------------------- | :--------------- | :---------------------------------------- | :----- | -: | ----: |
-| [test-check.R](testthat/test-check.R#L29) | reprex to blocks | class: no\_fig                            | PASS   | 1 | 0.039 |
-| [test-check.R](testthat/test-check.R#L33) | reprex to blocks | class: err                                | PASS   | 1 | 0.013 |
-| [test-check.R](testthat/test-check.R#L37) | reprex to blocks | class: fig                                | PASS   | 1 | 0.000 |
-| [test-check.R](testthat/test-check.R#L45) | reprex to blocks | element type: no\_fig                     | PASS   | 1 | 0.001 |
+| [test-check.R](testthat/test-check.R#L29) | reprex to blocks | class: no\_fig                            | PASS   | 1 | 0.054 |
+| [test-check.R](testthat/test-check.R#L33) | reprex to blocks | class: err                                | PASS   | 1 | 0.002 |
+| [test-check.R](testthat/test-check.R#L37) | reprex to blocks | class: fig                                | PASS   | 1 | 0.001 |
+| [test-check.R](testthat/test-check.R#L45) | reprex to blocks | element type: no\_fig                     | PASS   | 1 | 0.002 |
 | [test-check.R](testthat/test-check.R#L49) | reprex to blocks | element type: err                         | PASS   | 1 | 0.001 |
 | [test-check.R](testthat/test-check.R#L53) | reprex to blocks | element type: err emo                     | PASS   | 1 | 0.001 |
-| [test-check.R](testthat/test-check.R#L57) | reprex to blocks | element type: fig                         | PASS   | 1 | 0.002 |
+| [test-check.R](testthat/test-check.R#L57) | reprex to blocks | element type: fig                         | PASS   | 1 | 0.001 |
 | [test-si.R](testthat/test-si.R#L8)        | sessioninfo      | sessioninfo classification: file exists   | PASS   | 1 | 0.001 |
-| [test-si.R](testthat/test-si.R#L12)       | sessioninfo      | sessioninfo classification: file contents | PASS   | 1 | 0.001 |
+| [test-si.R](testthat/test-si.R#L12)       | sessioninfo      | sessioninfo classification: file contents | PASS   | 1 | 0.002 |
 | [test-si.R](testthat/test-si.R#L22)       | sessioninfo      | sessionInfo classification: file exists   | PASS   | 1 | 0.001 |
 | [test-si.R](testthat/test-si.R#L26)       | sessioninfo      | sessionInfo classification: file contents | PASS   | 1 | 0.001 |
 
@@ -63,7 +63,7 @@ Unit Test summary is created using the
 | Field    | Value                               |                                                                                                                                                                                                                                                                     |
 | :------- | :---------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Version  | R version 3.6.3 (2020-02-29)        |                                                                                                                                                                                                                                                                     |
-| Platform | x86\_64-apple-darwin15.6.0 (64-bit) | <a href="https://github.com/yonicd/slackreprex/commit/f7c824600071c4982f79d327dc4f8075df4aabc8/checks" target="_blank"><span title="Built on Github Actions">![](https://github.com/metrumresearchgroup/covrpage/blob/actions/inst/logo/gh.png?raw=true)</span></a> |
+| Platform | x86\_64-apple-darwin15.6.0 (64-bit) | <a href="https://github.com/yonicd/slackreprex/commit/231a45bdb9f268f6d1b881fa8e28a94a070fad11/checks" target="_blank"><span title="Built on Github Actions">![](https://github.com/metrumresearchgroup/covrpage/blob/actions/inst/logo/gh.png?raw=true)</span></a> |
 | Running  | macOS Catalina 10.15.6              |                                                                                                                                                                                                                                                                     |
 | Language | en\_US                              |                                                                                                                                                                                                                                                                     |
 | Timezone | UTC                                 |                                                                                                                                                                                                                                                                     |
