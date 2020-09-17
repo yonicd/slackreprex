@@ -38,12 +38,20 @@ post_reprex.existing_thread <- function(block, channel, text = NULL, token = Sys
       token   = token
     )  
 
-  }
+    slackblocks::post_block(
+      block   = block,
+      channel = slackposts::post_last(),
+      token   = token
+    )
+    
+  }else{
   
-  slackblocks::post_block(
-    block   = block,
-    channel = slackposts::post_last(),
-    token   = token
-  )
+    slackblocks::post_block(
+      block   = block,
+      channel = channel,
+      token   = token
+    )
+      
+  }
   
 }
