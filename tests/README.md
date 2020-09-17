@@ -1,6 +1,6 @@
 Tests and Coverage
 ================
-11 September, 2020 01:29:18
+12 September, 2020 11:02:26
 
   - [Coverage](#coverage)
   - [Unit Tests](#unit-tests)
@@ -33,7 +33,7 @@ Unit Test summary is created using the
 
 | file                                  | n |  time | error | failed | skipped | warning |
 | :------------------------------------ | -: | ----: | ----: | -----: | ------: | ------: |
-| [test-check.R](testthat/test-check.R) | 7 | 0.056 |     0 |      0 |       0 |       0 |
+| [test-check.R](testthat/test-check.R) | 7 | 0.057 |     0 |      0 |       0 |       0 |
 | [test-si.R](testthat/test-si.R)       | 4 | 0.004 |     0 |      0 |       0 |       0 |
 
 <details closed>
@@ -42,13 +42,13 @@ Unit Test summary is created using the
 
 | file                                      | context          | test                                      | status | n |  time |
 | :---------------------------------------- | :--------------- | :---------------------------------------- | :----- | -: | ----: |
-| [test-check.R](testthat/test-check.R#L29) | reprex to blocks | class: no\_fig                            | PASS   | 1 | 0.050 |
-| [test-check.R](testthat/test-check.R#L33) | reprex to blocks | class: err                                | PASS   | 1 | 0.001 |
-| [test-check.R](testthat/test-check.R#L37) | reprex to blocks | class: fig                                | PASS   | 1 | 0.001 |
+| [test-check.R](testthat/test-check.R#L29) | reprex to blocks | class: no\_fig                            | PASS   | 1 | 0.039 |
+| [test-check.R](testthat/test-check.R#L33) | reprex to blocks | class: err                                | PASS   | 1 | 0.013 |
+| [test-check.R](testthat/test-check.R#L37) | reprex to blocks | class: fig                                | PASS   | 1 | 0.000 |
 | [test-check.R](testthat/test-check.R#L45) | reprex to blocks | element type: no\_fig                     | PASS   | 1 | 0.001 |
 | [test-check.R](testthat/test-check.R#L49) | reprex to blocks | element type: err                         | PASS   | 1 | 0.001 |
 | [test-check.R](testthat/test-check.R#L53) | reprex to blocks | element type: err emo                     | PASS   | 1 | 0.001 |
-| [test-check.R](testthat/test-check.R#L57) | reprex to blocks | element type: fig                         | PASS   | 1 | 0.001 |
+| [test-check.R](testthat/test-check.R#L57) | reprex to blocks | element type: fig                         | PASS   | 1 | 0.002 |
 | [test-si.R](testthat/test-si.R#L8)        | sessioninfo      | sessioninfo classification: file exists   | PASS   | 1 | 0.001 |
 | [test-si.R](testthat/test-si.R#L12)       | sessioninfo      | sessioninfo classification: file contents | PASS   | 1 | 0.001 |
 | [test-si.R](testthat/test-si.R#L22)       | sessioninfo      | sessionInfo classification: file exists   | PASS   | 1 | 0.001 |
@@ -63,7 +63,7 @@ Unit Test summary is created using the
 | Field    | Value                               |                                                                                                                                                                                                                                                                     |
 | :------- | :---------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Version  | R version 3.6.3 (2020-02-29)        |                                                                                                                                                                                                                                                                     |
-| Platform | x86\_64-apple-darwin15.6.0 (64-bit) | <a href="https://github.com/yonicd/slackreprex/commit/ee154438ae30e9feb537c4378dd7a3b342e53154/checks" target="_blank"><span title="Built on Github Actions">![](https://github.com/metrumresearchgroup/covrpage/blob/actions/inst/logo/gh.png?raw=true)</span></a> |
+| Platform | x86\_64-apple-darwin15.6.0 (64-bit) | <a href="https://github.com/yonicd/slackreprex/commit/f7c824600071c4982f79d327dc4f8075df4aabc8/checks" target="_blank"><span title="Built on Github Actions">![](https://github.com/metrumresearchgroup/covrpage/blob/actions/inst/logo/gh.png?raw=true)</span></a> |
 | Running  | macOS Catalina 10.15.6              |                                                                                                                                                                                                                                                                     |
 | Language | en\_US                              |                                                                                                                                                                                                                                                                     |
 | Timezone | UTC                                 |                                                                                                                                                                                                                                                                     |
