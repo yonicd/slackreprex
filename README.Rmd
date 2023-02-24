@@ -17,18 +17,17 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![R-win build status](https://github.com/yonicd/slackreprex/workflows/R-win/badge.svg)](https://github.com/yonicd/slackreprex)
-[![R-mac build status](https://github.com/yonicd/slackreprex/workflows/R-mac/badge.svg)](https://github.com/yonicd/slackreprex)
-[![R-linux build status](https://github.com/yonicd/slackreprex/workflows/R-linux/badge.svg)](https://github.com/yonicd/slackreprex)
-[![Covrpage Summary](https://img.shields.io/badge/covrpage-Last_Build_2020_02_20-brightgreen.svg)](http://tinyurl.com/tf2xf4d)
+[![Covrpage Summary](https://img.shields.io/badge/covrpage-Last_Build_2023_02_23-brightgreen.svg)](http://tinyurl.com/2p3zgaqx)
+[![R-CMD-check](https://github.com/yonicd/slackreprex/actions/workflows/r-cmd-check.yml/badge.svg)](https://github.com/yonicd/slackreprex/actions/workflows/r-cmd-check.yml)
+[![Codecov test coverage](https://codecov.io/gh/yonicd/slackreprex/branch/master/graph/badge.svg)](https://codecov.io/gh/yonicd/slackreprex?branch=master)
 <!-- badges: end -->
 
 `slackreprex` is a part of `slackverse`
 
-```{r,echo = FALSE}
+```{r,echo = FALSE, eval = TRUE}
 pkgs <- sprintf('slack%s',c('calls','teams','posts','blocks','threads','reprex'))
 
-badges <- sprintf('%s<br>[![](https://github.com/yonicd/%s/workflows/R-mac/badge.svg)](https://github.com/yonicd/%s)',pkgs,pkgs,pkgs)
+badges <- sprintf('%s<br>[![](https://github.com/yonicd/%s/actions/workflows/r-cmd-check.yml/badge.svg)](https://github.com/yonicd/%s)',pkgs,pkgs,pkgs)
 
 names(badges) <- pkgs
 
