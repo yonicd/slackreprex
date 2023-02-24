@@ -1,4 +1,4 @@
-# Set up tests. ---------------------------------------------------------------
+# Set up tests. ----------------------------------------------------------------
 # While this *could* go into a setup.R file, that makes interactive testing
 # annoying. I compromised and put it in a collapsible block at the top of each
 # test file.
@@ -46,31 +46,46 @@ if (slack_api_test_mode == "true" || slack_api_test_mode == "capture") {
   withr::defer(rm(with_mock_api))
 }
 
+# Set up assets. ---------------------------------------------------------------
+
+# Set up test files in a tempdir so renders will be deleted when it's done.
+assets_path <- fs::dir_copy(test_path("assets"), tempdir())
+withr::defer(
+  unlink(assets_path, recursive = TRUE)
+)
 
 # Tests. -----------------------------------------------------------------------
 
 test_that("reprex_to_blocks works", {
-  fail("Update tests!")
+  reprex_output_no_fig <- reprex::reprex_slack(
+    input = fs::path(assets_path, "no_fig.R"),
+    advertise = FALSE,
+    html_preview = FALSE
+  )
+  
+  reprex_output_fig <- reprex::reprex_slack(
+    input = fs::path(assets_path, "fig.R"),
+    advertise = FALSE,
+    html_preview = FALSE
+  )
 })
 
-path <- '../assets'
-
 no_fig <- reprex_to_blocks(
-  reprex::reprex(input = file.path(path,'no_fig.R'),
+  reprex::reprex(input = test_path("assets", "no_fig.R"),
                  venue = 'gh', 
                  advertise = FALSE, 
                  show = FALSE)
 )
 
 err <- reprex_to_blocks(
-  reprex::reprex(input = file.path(path,'err.R'),
+  reprex::reprex(input = test_path("assets", "err.R"),
                  venue = 'gh', 
                  advertise = FALSE, 
                  show = FALSE)
 )
 
 fig <- reprex_to_blocks(
-  reprex::reprex(input = file.path(path,'fig.R'),
+  reprex::reprex(input = test_path("assets", "fig.R"),
                  venue = 'gh', 
                  advertise = FALSE, 
                  show = FALSE)

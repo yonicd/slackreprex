@@ -2,22 +2,32 @@ Package: slackreprex
 Title: Reprex for Slack
 Version: 0.1.0
 Authors@R: 
-    person(given = "Jonathan",
-           family = "Sidi",
-           role = c("aut", "cre"),
-           email = "yonicd@gmail.com",
+    person("Jonathan", "Sidi", , "yonicd@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-4222-1819"))
 Description: Create Slack Blocks in R and POST reprex outputs for slack.
-Depends: R (>= 3.5.0)
-Imports: utils,stats,details,knitr,reprex,slackblocks,slackposts
-Remotes: yonicd/slackblocks,yonicd/slackposts
 License: MIT + file LICENSE
+Depends: 
+    R (>= 3.5.0)
+Imports: 
+    details,
+    knitr,
+    reprex,
+    slackblocks,
+    slackposts,
+    stats,
+    utils
+Suggests: 
+    fs,
+    rmarkdown,
+    sessioninfo,
+    testthat,
+    withr
+VignetteBuilder: 
+    knitr
+Remotes: 
+    yonicd/slackblocks,
+    yonicd/slackposts
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
-Suggests: 
-    sessioninfo,
-    rmarkdown,
-    testthat
-VignetteBuilder: knitr
